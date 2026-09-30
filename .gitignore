@@ -1,0 +1,17 @@
+.Rproj.user
+.Rhistory
+.RData
+.httr-oauth
+.DS_Store
+.quarto
+*.docx
+*.pptx
+*.xlsx
+*.csv
+*.png
+*.shp
+*.shx
+*.dbf
+*.prj
+*.tif
+*.env
