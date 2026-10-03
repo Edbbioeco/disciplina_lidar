@@ -12,3 +12,9 @@ library(lidRmetrics)
 
 lidar <- system.file("extdata", "Megaplot.laz", package = "lidR") |>
   lidR::readLAS()
+
+### Visualizar ----
+
+lidar
+
+lidar |> lidR::plotd()
