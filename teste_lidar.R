@@ -18,3 +18,11 @@ lidar <- system.file("extdata", "Megaplot.laz", package = "lidR") |>
 lidar
 
 lidar |> lidR::plotd()
+
+## Pontos ----
+
+### Importar ----
+
+pontos <- base::system.file("extdata", "efi_plot.shp", package = "lidR") |>
+  sf::st_read() |>
+  sf::st_transform(crs = 4674)
