@@ -26,3 +26,10 @@ lidar |> lidR::plotd()
 pontos <- base::system.file("extdata", "efi_plot.shp", package = "lidR") |>
   sf::st_read() |>
   sf::st_transform(crs = 4674)
+
+### Visualizar ----
+
+pontos
+
+ggplot() +
+  geom_sf(data = pontos)
