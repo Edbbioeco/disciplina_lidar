@@ -10,7 +10,7 @@ library(terra)
 
 library(tidyterra)
 
-library(fleaflet)
+library(leaflet)
 
 library(leaflet.extras)
 
@@ -39,3 +39,5 @@ lidar_pontos <- lidar |>
   sf::st_as_sfc() |>
   sf::st_as_sf() |>
   sf::st_sample(size = 25)
+
+### Visualizar ----
