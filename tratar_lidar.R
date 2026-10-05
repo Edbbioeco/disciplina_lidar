@@ -59,3 +59,16 @@ lidar_df <- lidar@data |>
 lidar_df
 
 lidar_df |> dplyr::glimpse()
+
+## Estatísticas ----
+
+lidar_df |>
+  dplyr::summarise(dplyr::across(
+
+    .cols = dplyr::where(is.numeric),
+    .fns = list(Média = mean,
+                Desvio = sd,
+                Máximo = max,
+                Mínimo = min)
+
+    ))
