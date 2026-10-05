@@ -46,3 +46,10 @@ lidar_pontos
 
 ggplot() +
   geom_sf(data = lidar_pontos)
+
+# Propriedades do LiDAR ----
+
+## Criar o data frame ----
+
+lidar_df <- lidar@data |>
+  tibble::tibble()
