@@ -41,3 +41,8 @@ lidar_pontos <- lidar |>
   sf::st_sample(size = 25)
 
 ### Visualizar ----
+
+lidar_pontos
+
+ggplot() +
+  geom_sf(data = lidar_pontos)
