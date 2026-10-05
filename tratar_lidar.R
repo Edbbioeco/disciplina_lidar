@@ -53,3 +53,9 @@ ggplot() +
 
 lidar_df <- lidar@data |>
   tibble::tibble()
+
+## Visualizar ----
+
+lidar_df
+
+lidar_df |> dplyr::glimpse()
