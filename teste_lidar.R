@@ -17,7 +17,7 @@ lidar <- system.file("extdata", "Megaplot.laz", package = "lidR") |>
 
 lidar
 
-lidar |> lidR::plotd()
+lidar |> lidR::plot()
 
 ## Pontos ----
 
