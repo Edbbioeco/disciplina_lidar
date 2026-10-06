@@ -16,6 +16,8 @@ library(leaflet.extras)
 
 library(leafem)
 
+library(mapedit)
+
 # Dados ----
 
 ## LiDAR ----
