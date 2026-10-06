@@ -216,12 +216,14 @@ ponto_init <- traj |>
 ponto_init
 
 pontos_df <- pontos_traj |>
-  dplyr::mutate(distancia = pontos_traj |>
-                  sf::st_distance(ponto_init |>
-                                    sf::st_transform(crs = pontos_traj |>
-                                                       sf::st_crs())) |>
-                  as.numeric()
-                )
+  dplyr::mutate(distancia = sf::st_line_project(
+    line = traj |>
+      sf::st_transform(crs = pontos_traj |>
+                         sf::st_crs()) |>
+      sf::st_geometry(),
+    point = pontos_traj |>
+      sf::st_geometry()) |>
+      as.numeric())
 
 pontos_df
 
