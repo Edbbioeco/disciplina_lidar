@@ -225,3 +225,11 @@ pontos_df <- pontos_traj |>
   dplyr::arrange(distancia)
 
 pontos_df
+
+### Unir os dados ----
+
+pontos_dist <- lidar_traj_sf |>
+  sf::st_join(pontos_df) |>
+  dplyr::arrange(distancia)
+
+pontos_dist
