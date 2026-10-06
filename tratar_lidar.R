@@ -179,7 +179,7 @@ ggplot() +
 
 ### Extrair valores ----
 
-lidar_traj <- lidar |>
+lidar_traj <- las_norm |>
   lidR::clip_roi(traj_buf)
 
 lidar_traj
