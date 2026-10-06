@@ -230,6 +230,12 @@ pontos_df
 
 pontos_dist <- lidar_traj_sf |>
   sf::st_join(pontos_df) |>
-  dplyr::arrange(distancia)
+  dplyr::arrange(distancia) |>
 
 pontos_dist
+
+## Gráfico ----
+
+pontos_dist |>
+  ggplot(aes(distancia, Z)) +
+  geom_point()
