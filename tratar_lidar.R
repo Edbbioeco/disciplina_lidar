@@ -175,3 +175,10 @@ traj_buf
 ggplot() +
   tidyterra::geom_spatraster_rgb(data = lidar_rast) +
   geom_sf(data = traj_buf, color = "red")
+
+### Extrair valores ----
+
+lidar_traj <- lidar |>
+  lidR::clip_roi(traj_buf)
+
+lidar_traj
