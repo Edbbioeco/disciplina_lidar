@@ -192,3 +192,19 @@ lidar_traj_sf <- lidar_traj@data |>
                crs = lidar |> sf::st_crs())
 
 lidar_traj_sf
+
+### Extrair valores de distência de cada ponto ----
+
+pontos_traj <- sf::st_nearest_points(lidar_traj_sf,
+                      traj |>
+                        sf::st_transform(lidar |> sf::st_crs())) |>
+  sf::st_as_sf() |>
+  sf::st_coordinates() |>
+  as.data.frame() |>
+  dplyr::group_by(L1) |>
+  dplyr::slice(2) |>
+  dplyr::ungroup() |>
+  sf::st_as_sf(coords = c(1:2),
+               crs = lidar |> sf::st_crs())
+
+pontos_traj
