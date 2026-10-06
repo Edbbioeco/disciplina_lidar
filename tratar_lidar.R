@@ -183,3 +183,12 @@ lidar_traj <- lidar |>
   lidR::clip_roi(traj_buf)
 
 lidar_traj
+
+### Criar shapefile dos pontos do LiDAR ----
+
+lidar_traj_sf <- lidar_traj@data |>
+  tibble::tibble() |>
+  sf::st_as_sf(coords = c(1:2),
+               crs = lidar |> sf::st_crs())
+
+lidar_traj_sf
