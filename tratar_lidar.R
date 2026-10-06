@@ -168,7 +168,8 @@ ggplot() +
 ### Criar buffer do trajeto ----
 
 traj_buf <- traj |>
-  sf::st_buffer(dist = 1)
+  sf::st_buffer(dist = 1) |>
+  sf::st_transform(crs = lidar |> sf::st_crs())
 
 traj_buf
 
