@@ -240,4 +240,11 @@ pontos_dist |> dplyr::glimpse()
 
 pontos_dist |>
   ggplot(aes(distancia, Z)) +
-  geom_point()
+  geom_point() +
+  labs(x = "Distância (m)",
+       y = "Altura (m)") +
+  theme_bw() +
+  theme(axis.text = element_text(color = "black", size = 20),
+        axis.title = element_text(color = "black", size = 20),
+        panel.border = element_rect(linewidth = 1, color = "black")) +
+  ggview::canvas(height = 10, width = 12)
