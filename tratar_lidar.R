@@ -214,3 +214,14 @@ ponto_init <- traj |>
   dplyr::slice(1)
 
 ponto_init
+
+pontos_df <- pontos_traj |>
+  dplyr::mutate(distancia = pontos_traj |>
+                  sf::st_distance(ponto_init |>
+                                    sf::st_transform(crs = pontos_traj |>
+                                                       sf::st_crs())) |>
+                  as.numeric()
+                ) |>
+  dplyr::arrange(distancia)
+
+pontos_df
