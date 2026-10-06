@@ -60,6 +60,10 @@ lidar_df
 
 lidar_df |> dplyr::glimpse()
 
+## Números de pontos ----
+
+lidar_df |> nrow()
+
 ## Estatísticas ----
 
 lidar_df |>
