@@ -76,3 +76,7 @@ lidar_df |>
                 Mínimo = min)
 
     ))
+
+## Variação dos valores de altura ----
+
+lidar@data$Z |> range()
