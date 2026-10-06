@@ -80,3 +80,12 @@ lidar_df |>
 ## Variação dos valores de altura ----
 
 lidar@data$Z |> range()
+
+## Filtrar os rasters ----
+
+lidar_clas <- lidar |>
+  lidR::filter_poi(Z |> dplyr::between(10, 50))
+
+lidar_clas
+
+lidar_clas |> lidR::plot(color = "RGB")
