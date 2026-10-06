@@ -111,3 +111,22 @@ las_norm <- lidar |>
   lidR::normalize_height(algorithm = dtm)
 
 las_norm
+
+## Perfil de elevação ----
+
+### Transformar o LiDAr em um raster RGB ----
+
+lidar_rast <- lidar |>
+  lidR::pixel_metrics(func = ~list(R = mean(R),
+                                   G = mean(G),
+                                   B = mean(B)),
+                      res = 0.5) |>
+  terra::app(fun = \(x) x / 256) |>
+  terra::clamp(lower = 0, upper = 255)
+
+lidar_rast <- lidar_rast / 256
+
+lidar_rast
+
+ggplot() +
+  tidyterra::geom_spatraster_rgb(data = lidar_rast)
