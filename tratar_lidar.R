@@ -221,18 +221,18 @@ pontos_df <- pontos_traj |>
                                     sf::st_transform(crs = pontos_traj |>
                                                        sf::st_crs())) |>
                   as.numeric()
-                ) |>
-  dplyr::arrange(distancia)
+                )
 
 pontos_df
 
 ### Unir os dados ----
 
 pontos_dist <- lidar_traj_sf |>
-  sf::st_join(pontos_df) |>
-  dplyr::arrange(distancia) |>
+  dplyr::mutate(distancia = pontos_df$distancia)
 
 pontos_dist
+
+pontos_dist |> dplyr::glimpse()
 
 ## Gráfico ----
 
