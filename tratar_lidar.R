@@ -154,3 +154,13 @@ mapa <- leaflet::leaflet() |>
                        fillOpacity = 0)
 
 mapa
+
+trajeto <- mapedit::editMap(mapa)
+
+traj <- trajeto$finished
+
+traj
+
+ggplot() +
+  tidyterra::geom_spatraster_rgb(data = lidar_rast) +
+  geom_sf(data = traj, color = "red")
