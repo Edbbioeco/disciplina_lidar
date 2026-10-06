@@ -96,6 +96,7 @@ lidar_clas |> lidR::plot(color = "RGB")
 
 dtm <- lidar |>
   lidR::classify_ground(algorithm = lidR::csf()) |>
+  lidR::filter_ground() |>
   lidR::rasterize_terrain(res = 1, algorithm = lidR::tin())
 
 dtm
