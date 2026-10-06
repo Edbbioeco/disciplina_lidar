@@ -124,8 +124,6 @@ lidar_rast <- lidar |>
   terra::app(fun = \(x) x / 256) |>
   terra::clamp(lower = 0, upper = 255)
 
-lidar_rast <- lidar_rast / 256
-
 lidar_rast
 
 ggplot() +
