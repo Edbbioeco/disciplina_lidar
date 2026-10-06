@@ -208,3 +208,9 @@ pontos_traj <- sf::st_nearest_points(lidar_traj_sf,
                crs = lidar |> sf::st_crs())
 
 pontos_traj
+
+ponto_init <- traj |>
+  sf::st_cast("POINT") |>
+  dplyr::slice(1)
+
+ponto_init
