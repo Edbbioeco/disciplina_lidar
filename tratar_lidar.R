@@ -112,7 +112,8 @@ ggplot() +
 ### Normalizar ----
 
 las_norm <- lidar |>
-  lidR::normalize_height(algorithm = dtm)
+  lidR::normalize_height(algorithm = dtm) |>
+  lidR::filter_poi(!Z < 0)
 
 las_norm
 
