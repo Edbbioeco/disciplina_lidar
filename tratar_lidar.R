@@ -238,6 +238,19 @@ pontos_dist
 
 pontos_dist |> dplyr::glimpse()
 
+### Média e desvio padrão ----
+
+media_sd_dist <- pontos_dist |>
+  sf::st_drop_geometry() |>
+  dplyr::mutate(distancia = distancia |>
+                  round()) |>
+  dplyr::summarise(media = Z |> mean(),
+                   sd = Z |> sd(),
+                   .by = distancia) |>
+  dplyr::rename(Z = 2)
+
+media_sd_dist
+
 ## Gráfico ----
 
 pontos_dist |>
