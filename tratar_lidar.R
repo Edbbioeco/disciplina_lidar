@@ -239,7 +239,7 @@ pontos_dist
 
 pontos_dist |> dplyr::glimpse()
 
-## Gráfico ----
+### Gráfico ----
 
 pontos_dist |>
   ggplot(aes(distancia, Z)) +
