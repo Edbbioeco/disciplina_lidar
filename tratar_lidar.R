@@ -130,3 +130,27 @@ lidar_rast
 
 ggplot() +
   tidyterra::geom_spatraster_rgb(data = lidar_rast)
+
+### Criar shapefile de trajeto ----
+
+mapa <- leaflet::leaflet() |>
+  leaflet::addProviderTiles(providers$Esri.WorldImagery) |>
+  leaflet.extras::addDrawToolbar(
+    targetGroup = "Draw",
+    polylineOptions = leaflet.extras::drawPolylineOptions(),
+    polygonOptions = leaflet.extras::drawPolygonOptions(),
+    circleOptions = leaflet.extras::drawCircleOptions(),
+    rectangleOptions = leaflet.extras::drawRectangleOptions(),
+    markerOptions = leaflet.extras::drawMarkerOptions(),
+    circleMarkerOptions = leaflet.extras::drawCircleMarkerOptions(),
+    editOptions = leaflet.extras::editToolbarOptions()) |>
+  leafem::addMouseCoordinates() |>
+  leaflet::addPolygons(data = lidar |>
+                         sf::st_bbox() |>
+                         sf::st_as_sfc() |>
+                         sf::st_as_sf() |>
+                         sf::st_transform(crs = 4326),
+                       color = "red",
+                       fillOpacity = 0)
+
+mapa
