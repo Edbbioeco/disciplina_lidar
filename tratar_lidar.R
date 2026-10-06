@@ -164,3 +164,14 @@ traj
 ggplot() +
   tidyterra::geom_spatraster_rgb(data = lidar_rast) +
   geom_sf(data = traj, color = "red")
+
+### Criar buffer do trajeto ----
+
+traj_buf <- traj |>
+  sf::st_buffer(dist = 1)
+
+traj_buf
+
+ggplot() +
+  tidyterra::geom_spatraster_rgb(data = lidar_rast) +
+  geom_sf(data = traj_buf, color = "red")
