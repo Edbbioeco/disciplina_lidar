@@ -150,8 +150,8 @@ purrr::map(
       facet_wrap(~lyr) +
       labs(fill = nome) +
       theme_bw() +
-      theme(text = element_text(color = "black"),
-            legend.text = element_text(color = "black"),
+      theme(axis.text = element_text(color = "black"),
+            legend.text = element_text(color = "black", size = 15),
             legend.title = element_text(color = "black", size = 15),
             strip.text = element_text(color = "black", size = 25))
 
