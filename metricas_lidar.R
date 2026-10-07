@@ -111,3 +111,21 @@ lidar_cort <- lidar_norm |>
                    sf::st_transform(lidar_norm |> sf::st_crs()))
 
 lidar_cort
+
+## Calcular métricas ----
+
+metrica <- lidar_cort |>
+  lidR::pixel_metrics(~list(
+    MaxH = max(Z),
+    MinH = min(Z),
+    MeanH = mean(Z),
+    SD_H = sd(Z),
+    P95 = quantile(Z, 0.95),
+    GapFrac = (sum(Z < 2) / length(Z)),
+    Dens_Herb = (sum(Z >= 0 & Z < 2) / length(Z)) * 100,
+    Dens_Sub  = (sum(Z >= 2 & Z < 5) / length(Z)) * 100,
+    Dens_Mid  = (sum(Z >= 5 & Z < 10) / length(Z)) * 100,
+    Dens_Copa = (sum(Z >= 10) / length(Z)) * 100),
+    res = 10)
+
+metrica
