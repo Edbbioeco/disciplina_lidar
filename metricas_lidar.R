@@ -141,7 +141,12 @@ purrr::map(
 
     ggplot() +
       tidyterra::geom_spatraster(data = metrica[[nome]]) +
-      scale_fill_viridis_c(na.value = "transparent") +
+      scale_fill_viridis_c(na.value = "transparent",
+                           guide = guide_colourbar(
+                             barheight = 10,
+                             frame.colour = "black",
+                             ticks.colour = "black"
+                           )) +
       facet_wrap(~lyr) +
       labs(fill = nome) +
       theme_bw() +
