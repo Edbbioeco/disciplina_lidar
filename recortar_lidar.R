@@ -8,7 +8,7 @@ library(terra)
 
 library(tidyterra)
 
-library(ggview)
+library(sf)
 
 # Dados ----
 
