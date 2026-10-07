@@ -8,6 +8,12 @@ library(terra)
 
 library(tiyterra)
 
+library(leaflet)
+
+library(leaflet.extras)
+
+library(leafem)
+
 library(patchwork)
 
 library(ggview)
