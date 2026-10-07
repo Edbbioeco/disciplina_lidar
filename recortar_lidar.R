@@ -9,3 +9,11 @@ library(terra)
 library(tidyterra)
 
 library(ggview)
+
+# Dados ----
+
+## LiDAR ----
+
+### Importar ----
+
+lidar <- lidR::readLAS("NP_RGB.las")
