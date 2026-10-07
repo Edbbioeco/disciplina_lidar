@@ -70,3 +70,7 @@ lidar_crop <- lidar_norm |>
   lidR::clip_roi(dtm_70)
 
 lidar_crop
+
+## Exportar LiDAR ----
+
+lidar_crop |> lidR::writeLAS("lidar_crop.las")
