@@ -46,3 +46,21 @@ lidar_norm <- lidar |>
   lidR::filter_poi(!Z < 0)
 
 lidar_norm
+
+## Filtrar raster e transformar em shapefile ----
+
+dtm_70 <- (dtm > 70) |>
+  tidyterra::filter(Z == TRUE) |>
+  terra::as.polygons() |>
+  sf::st_as_sf(crs = lidar |> sf::st_crs()) |>
+  sf::st_cast("POLYGON") |>
+  dplyr::slice(5)
+
+dtm_70
+
+ggplot() +
+  tidyterra::geom_spatraster(data = dtm) +
+  geom_sf(data = dtm_70,
+          color = "red", fill = "transparent") +
+  scale_fill_viridis_c()
+
