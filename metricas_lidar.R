@@ -103,3 +103,11 @@ leaflet::leaflet() |>
   leaflet::addPolygons(data = poli,
                        color = "gold",
                        fillOpacity = 0)
+
+## Recortar ----
+
+lidar_cort <- lidar_norm |>
+  lidR::clip_roi(poli |>
+                   sf::st_transform(lidar_norm |> sf::st_crs()))
+
+lidar_cort
