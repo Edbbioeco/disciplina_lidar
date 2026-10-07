@@ -14,6 +14,8 @@ library(leaflet.extras)
 
 library(leafem)
 
+library(sf)
+
 library(patchwork)
 
 library(ggview)
