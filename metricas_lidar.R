@@ -48,3 +48,58 @@ lidar_norm <- lidar |>
   lidR::filter_poi(!Z < 0)
 
 lidar_norm
+
+# Métricas ----
+
+## Criar polígono ----
+
+mapa <- leaflet::leaflet() |>
+  leaflet::addProviderTiles(providers$Esri.WorldImagery) |>
+  leaflet.extras::addDrawToolbar(
+    targetGroup = "Draw",
+    polylineOptions = leaflet.extras::drawPolylineOptions(),
+    polygonOptions = leaflet.extras::drawPolygonOptions(),
+    circleOptions = leaflet.extras::drawCircleOptions(),
+    rectangleOptions = leaflet.extras::drawRectangleOptions(),
+    markerOptions = leaflet.extras::drawMarkerOptions(),
+    circleMarkerOptions = leaflet.extras::drawCircleMarkerOptions(),
+    editOptions = leaflet.extras::editToolbarOptions()) |>
+  leafem::addMouseCoordinates() |>
+  leaflet::addPolygons(data = lidar |>
+                         sf::st_bbox() |>
+                         sf::st_as_sfc() |>
+                         sf::st_as_sf() |>
+                         sf::st_transform(crs = 4326),
+                       color = "red",
+                       fillOpacity = 0)
+
+mapa
+
+trajeto <- mapedit::editMap(mapa)
+
+poli <- trajeto$finished
+
+poli
+
+leaflet::leaflet() |>
+  leaflet::addProviderTiles(providers$Esri.WorldImagery) |>
+  leaflet.extras::addDrawToolbar(
+    targetGroup = "Draw",
+    polylineOptions = leaflet.extras::drawPolylineOptions(),
+    polygonOptions = leaflet.extras::drawPolygonOptions(),
+    circleOptions = leaflet.extras::drawCircleOptions(),
+    rectangleOptions = leaflet.extras::drawRectangleOptions(),
+    markerOptions = leaflet.extras::drawMarkerOptions(),
+    circleMarkerOptions = leaflet.extras::drawCircleMarkerOptions(),
+    editOptions = leaflet.extras::editToolbarOptions()) |>
+  leafem::addMouseCoordinates() |>
+  leaflet::addPolygons(data = lidar |>
+                         sf::st_bbox() |>
+                         sf::st_as_sfc() |>
+                         sf::st_as_sf() |>
+                         sf::st_transform(crs = 4326),
+                       color = "red",
+                       fillOpacity = 0) |>
+  leaflet::addPolygons(data = poli,
+                       color = "gold",
+                       fillOpacity = 0)
