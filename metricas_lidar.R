@@ -153,7 +153,10 @@ purrr::map(
       theme(axis.text = element_text(color = "black"),
             legend.text = element_text(color = "black", size = 15),
             legend.title = element_text(color = "black", size = 15),
-            strip.text = element_text(color = "black", size = 25))
+            strip.text = element_text(color = "black", size = 25),
+            strip.background = element_rect(color = "black",
+                                            linewidth = 2),
+            panel.border = element_rect(color = "black", linewidth = 2))
 
     },
   .progress = TRUE) |>
