@@ -64,3 +64,9 @@ ggplot() +
           color = "red", fill = "transparent") +
   scale_fill_viridis_c()
 
+## Recortar LiDAR ----
+
+lidar_crop <- lidar_norm |>
+  lidR::clip_roi(dtm_70)
+
+lidar_crop
