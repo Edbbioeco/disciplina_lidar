@@ -117,7 +117,6 @@ lidar_cort
 metrica <- lidar_cort |>
   lidR::pixel_metrics(~list(
     MaxH = max(Z),
-    MinH = min(Z),
     MeanH = mean(Z),
     SD_H = sd(Z),
     P95 = quantile(Z, 0.95),
