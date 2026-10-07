@@ -154,3 +154,6 @@ purrr::map(
   .progress = TRUE) |>
   patchwork::wrap_plots() +
   ggview::canvas(height = 10, width = 12)
+
+ggsave(filename = "mapa_metricas.png",
+       height = 10, width = 12)
