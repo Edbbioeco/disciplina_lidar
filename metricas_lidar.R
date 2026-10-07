@@ -142,7 +142,13 @@ purrr::map(
     ggplot() +
       tidyterra::geom_spatraster(data = metrica[[nome]]) +
       scale_fill_viridis_c(na.value = "transparent") +
-      facet_wrap(~lyr)
+      facet_wrap(~lyr) +
+      labs(fill = nome) +
+      theme_bw() +
+      theme(text = element_text(color = "black"),
+            legend.text = element_text(color = "black"),
+            legend.title = element_text(color = "black", size = 15),
+            strip.text = element_text(color = "black", size = 25))
 
     },
   .progress = TRUE) |>
