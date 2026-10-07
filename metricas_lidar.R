@@ -13,3 +13,10 @@ library(patchwork)
 library(ggview)
 
 library(flextable)
+
+# Dados ----
+
+## Importar ----
+
+lidar <- lidR::readLAS("NP_RGB.las")
+
