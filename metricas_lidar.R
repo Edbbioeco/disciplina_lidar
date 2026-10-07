@@ -165,3 +165,34 @@ purrr::map(
 
 ggsave(filename = "mapa_metricas.png",
        height = 10, width = 12)
+
+## Calcular estatísticas descritivas por cada camada ----
+
+tabela_met <- purrr::map_dfr(
+  nomes_metricas,
+  \(nome_met){
+
+    valores <- metrica[[nome_met]] |>
+      terra::values() |>
+      na.omit()
+
+    tibble::tibble(Métrica = nome_met,
+                   Max = valores |>
+                     max() |>
+                     round(2),
+                   Min = valores |>
+                     min() |>
+                     round(2),
+                   Mean = valores |>
+                     mean() |>
+                     round(2),
+                   sd = valores |>
+                     sd() |>
+                     round(2),
+                   NPix = metrica[[nome_met]] |>
+                     terra::ncell())
+
+    },
+  .progress = TRUE)
+
+tabela_met
