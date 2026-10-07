@@ -41,7 +41,7 @@ ggplot() +
   tidyterra::geom_spatraster(data = dtm) +
   scale_fill_viridis_c()
 
-### Normalizar ----
+## Normalizar ----
 
 lidar_norm <- lidar |>
   lidR::normalize_height(algorithm = dtm) |>
