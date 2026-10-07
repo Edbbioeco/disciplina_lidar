@@ -4,8 +4,6 @@ library(tidyverse)
 
 library(lidR)
 
-library(terra)
-
 library(tiyterra)
 
 library(leaflet)
@@ -15,6 +13,8 @@ library(leaflet.extras)
 library(leafem)
 
 library(sf)
+
+library(terra)
 
 library(patchwork)
 
