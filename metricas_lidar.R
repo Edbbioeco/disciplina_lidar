@@ -129,3 +129,23 @@ metrica <- lidar_cort |>
     res = 10)
 
 metrica
+
+## Visualizar ----
+
+nomes_metricas <- metrica |> terra::names()
+
+nomes_metricas
+
+purrr::map(
+  nomes_metricas,
+  \(nome){
+
+    ggplot() +
+      tidyterra::geom_spatraster(data = metrica[[nome]]) +
+      scale_fill_viridis_c(na.value = "transparent") +
+      facet_wrap(~lyr)
+
+    },
+  .progress = TRUE) |>
+  patchwork::wrap_plots() +
+  ggview::canvas(height = 10, width = 12)
