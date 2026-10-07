@@ -17,3 +17,9 @@ library(ggview)
 ### Importar ----
 
 lidar <- lidR::readLAS("NP_RGB.las")
+
+### Visualizar ----
+
+lidar
+
+lidar |> lidR::plot(color = "RGB")
