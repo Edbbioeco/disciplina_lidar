@@ -196,3 +196,14 @@ tabela_met <- purrr::map_dfr(
   .progress = TRUE)
 
 tabela_met
+
+## Tabela flextable ----
+
+tabela_met_flex <- tabela_met |>
+  flextable::flextable() |>
+  flextable::align(align = "center", part = "all")
+
+tabela_met_flex
+
+tabela_met_flex |>
+  flextable::save_as_docx(path = "tabela_estatisticas_metricas.docx")
