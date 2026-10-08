@@ -32,7 +32,7 @@ coord
 
 coord |> dplyr::glimpse()
 
-## Transormar em shapeile ----
+### Transormar em shapeile ----
 
 parcelas <- coord |>
   tidyr::drop_na() |>
@@ -46,6 +46,6 @@ parcelas <- coord |>
 ggplot() +
   geom_sf(data = parcelas)
 
-## Exportar o shapefile ----
+### Exportar o shapefile ----
 
 parcelas |> sf::st_write("parcelas_nisia.gpkg")
