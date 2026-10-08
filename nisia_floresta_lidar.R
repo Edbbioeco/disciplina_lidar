@@ -49,3 +49,16 @@ ggplot() +
 ### Exportar o shapefile ----
 
 parcelas |> sf::st_write("parcelas_nisia.gpkg")
+
+# Métricas ----
+
+## Calcular buffer ----
+
+parcelas_buffer <- parcelas |>
+  sf::st_buffer(dist = 20)
+
+parcelas_buffer
+
+ggplot() +
+  geom_sf(data = parcelas, color = "black") +
+  geom_sf(data = parcelas_buffer, color = "red", fill = "transparent")
