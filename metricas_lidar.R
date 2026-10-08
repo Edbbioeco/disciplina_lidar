@@ -157,6 +157,8 @@ purrr::map(
                            )) +
       facet_wrap(~lyr) +
       labs(fill = nome) +
+      coord_sf(crs =  sf::st_crs(31985),
+               datum = sf::st_crs(31985)) +
       theme_bw() +
       theme(axis.text = element_text(color = "black"),
             legend.text = element_text(color = "black", size = 15),
