@@ -45,3 +45,7 @@ parcelas <- coord |>
 
 ggplot() +
   geom_sf(data = parcelas)
+
+## Exportar o shapefile ----
+
+parcelas |> sf::st_write("parcelas_nisia.gpkg")
