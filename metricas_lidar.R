@@ -4,7 +4,7 @@ library(tidyverse)
 
 library(lidR)
 
-library(tiyterra)
+library(tidyterra)
 
 library(leaflet)
 
